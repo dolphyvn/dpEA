@@ -5,8 +5,11 @@
 ## Features
 
 - **VWAP-Based Trading**
+- **VWAP Expanded Strategy**
+- **VWAP Expanded Hedge Strategy**
 - **Dollar Cost Averaging (DCA) Strategy**
-- **Martingale Strategy**
+- **Mean Reversal DCA Strategies (Versions 1 & 2)**
+- **Stop Order Breakout Strategy**
 - **Manual Trading with Hotkey Support**
 - **Take Profit and Stop Loss Management**
 - **Periodic Profit Withdrawal**
@@ -96,18 +99,31 @@
 3. Configure `InputStdDevMultiplier1...5` and `vwapTimeFrame`.
 4. Set `distanceInPoints` to define how far the price must move before adding new positions.
 
-### 2. **DCA (Dollar Cost Averaging) Strategy**
+### 2. **VWAP Expanded Strategy**
+
+1. Set `eaBotMode = VWAPEXPANDED` or `VWAPEXPANDEDHEDGE`.
+2. Configure `vwapExpandPoints` and other VWAP properties.
+3. Set `distanceInPoints` to define when to open new positions based on VWAP band expansion.
+
+### 3. **DCA (Dollar Cost Averaging) Strategy**
 
 1. Set `eaBotMode = DCA`.
 2. Adjust `mtcVolumeSteps`, `mtcRangeTP`, and `distanceInPoints` to control position entries.
 3. Set `exitPosition` and `exitPositionPercentage` to define the exit conditions.
 
-### 3. **Martingale Strategy**
+### 4. **Mean Reversion DCA Strategy (MEANDCA / MEANDCA_V2)**
 
-1. Set `vlIncreaseType = X2` to double the volume for each subsequent trade.
-2. Adjust `eaVolumeX` to control the multiplier factor for volume growth.
+1. Set `eaBotMode = MEANDCA` or `MEANDCA_V2`.
+2. Adjust `distanceInPoints` and VWAP properties as necessary.
+3. Configure the `mtcVolumeSteps` and `mtcRangeTP` to manage entry points for mean reversion strategies.
 
-### 4. **Manual Trading**
+### 5. **Stop Order Breakout Strategy**
+
+1. Set `eaBotMode = STOPODER_BREAKOUT`.
+2. Configure `eaStopOrderDistance`, `eaSTL`, and `eaTP` to define the breakout points.
+3. This strategy places stop orders based on the price breaking out from defined levels.
+
+### 6. **Manual Trading**
 
 1. Set `eaBotMode = MANUAL`.
 2. Use the hotkeys to open and manage trades manually during specific market conditions.
