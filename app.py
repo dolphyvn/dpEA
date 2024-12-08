@@ -55,7 +55,7 @@ def view_file():
         return jsonify({"error": "Invalid file path"}), 400
 
     # Check for supported file extensions
-    allowed_extensions = ['.ex4', '.ex5', '.zip']  # Add more extensions as needed
+    allowed_extensions = ['.ex4', '.ex5', '.json']  # Add more extensions as needed
     if not any(file_path.endswith(ext) for ext in allowed_extensions):
         return jsonify({"error": "Unsupported file type"}), 400
 
